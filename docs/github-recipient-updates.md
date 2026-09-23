@@ -1,6 +1,6 @@
-# Private GitHub recipient updates
+# Public GitHub recipient updates
 
-Repository: https://github.com/rearview-1/smite-private-updates (private).
+Repository: https://github.com/rearview-1/smite-private-updates (public).
 The new full-folder release is the initial game installation. GitHub hosts a
 signed channel plus subsequent changed-file chunks, not a new 42 GiB ZIP for
 every change. The historical network installer remains separate; its manifest
@@ -9,17 +9,15 @@ and installed-state schemas must not be mixed with this recipient channel.
 ## Player
 
 1. Extract the new updater-enabled ZIP to a fresh directory and run SETUP.bat.
-2. Obtain access to the private repository using your own GitHub account.
-3. Run SIGN IN FOR UPDATES.bat once and complete the GitHub browser sign-in.
-4. Close the game and wait for ROLLBACK COMPLETE. Run CHECK FOR UPDATES.bat.
-5. After UPDATE CHECK COMPLETE, use PLAY SMITE.bat normally.
+2. Run PLAY SMITE.bat. It checks the public signed update channel before launch.
+3. CHECK FOR UPDATES.bat performs the same check explicitly, without launching.
+4. Close the game and wait for ROLLBACK COMPLETE before applying any update.
 
-GitHub CLI 2.91.0 is bundled with its MIT license. The reviewed Windows executable
-has a valid Authenticode signature and SHA256
-619787d8ee760105ccf8a554d164c6e67196d1ec77a5fd31c39afe32cff640a9.
-Its credential store is local to the player; no token or private game credential
-is shipped. Signing in to GitHub does not create a private game account.
-Local play never requires checking GitHub first. Updates are explicit.
+Players do not need GitHub accounts, GitHub CLI, tokens or extra updater software.
+If GitHub is unreachable, startup may use the locally verified installed version.
+Signature/hash failures are rejected, not treated as an offline exception.
+No account or game authentication data is published. Signing in to the private
+game remains separate from downloading public updates.
 
 ## Operator
 

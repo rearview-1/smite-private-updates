@@ -1,13 +1,15 @@
-# SMITE private updates
+# SMITE compatibility updates
 
-Private signed update channel for the existing full-folder compatibility build.
+Public signed update channel for the full-folder compatibility build.
 Initial installation is distributed separately. Subsequent GitHub Releases
 contain only changed managed files and signed metadata.
 
-Players: obtain repository access, use SIGN IN FOR UPDATES.bat once, then
-CHECK FOR UPDATES.bat with the game closed and rollback complete.
+PLAY SMITE.bat checks this channel at startup. CHECK FOR UPDATES.bat also checks
+without launching. Players need no GitHub account or additional software.
+Close the game and wait for ROLLBACK COMPLETE before updating.
 
 [Player and operator instructions](docs/github-recipient-updates.md)
 
-No game binaries, account databases, signing keys or private certificates belong
-in this Git repository. No native gameplay success is implied by publication.
+Game binaries are not committed to Git history. Account databases, signing keys,
+private certificates and credentials are never published. Native gameplay
+acceptance remains separate from updater validation.
