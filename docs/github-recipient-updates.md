@@ -16,7 +16,8 @@ and installed-state schemas must not be mixed with this recipient channel.
 Players do not need GitHub accounts, GitHub CLI, tokens or extra updater software.
 If GitHub is unreachable, startup may use the locally verified installed version.
 Signature/hash failures are rejected, not treated as an offline exception.
-No account or game authentication data is published. Signing in to the private
+Startup defers update installation while a local game/host transaction is active,
+so joining an existing local host is preserved. No account or game authentication data is published. Signing in to the private
 game remains separate from downloading public updates.
 
 ## Operator
@@ -57,3 +58,15 @@ Synthetic rollback/content tests are distinct from signed live GitHub channel
 verification and native game acceptance. See CURRENT_STATUS for actual results.
 0.3.1 has no update integration and requires the new initial ZIP once. AWS's
 existing signed host snapshot is not silently rewritten by publishing a channel.
+
+Validation: 97 focused/distribution tests passed, including a signed synthetic
+update applied through the Windows signature verifier, rollback after interruption,
+public downloads without login, and startup deferral for an active session.
+A changed 3-byte fixture produced a 3-byte payload; its unchanged 9 KB file was
+not uploaded. Live channel acceptance is recorded separately after publication.
+
+Live public channel acceptance PASS: the packaged bundled runtime downloaded and
+verified the published channel with no GitHub credentials. The initial 0.3.2
+baseline published zero game payload bytes. The 0.3.2 ZIP is 44,888,830,434 bytes.
+No native game was launched. AWS still uses its separately installed host
+snapshot; adopting this updater on that machine is a separate migration.
