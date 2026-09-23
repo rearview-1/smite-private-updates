@@ -1,0 +1,11 @@
+*.pem
+*.key
+*.pfx
+*.db
+*.sqlite*
+*.exe
+*.dll
+*.upk
+*.zip
+*.part
+.env*
