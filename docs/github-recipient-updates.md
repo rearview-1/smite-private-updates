@@ -70,3 +70,25 @@ verified the published channel with no GitHub credentials. The initial 0.3.2
 baseline published zero game payload bytes. The 0.3.2 ZIP is 44,888,830,434 bytes.
 No native game was launched. AWS still uses its separately installed host
 snapshot; adopting this updater on that machine is a separate migration.
+
+## 0.3.3 recovery-bootstrap boundary (2026-09-23)
+
+0.3.3 is a new initial baseline. Compared with0.3.2 it changes the protected
+Recipient.ps1, recipient.py and Prerequisites.ps1 bootstrap files. The installed
+0.3.2 updater rejects that transition with
+UPDATE_TRUST_BOOTSTRAP_REQUIRES_NEW_INSTALL. Do not weaken that guard.
+
+Users of0.3.2 must install the separately distributed0.3.3 ZIP once, preserving
+existing profile/account/enrollment data. The new signed testing channel starts
+at the exact validated0.3.3 manifest; older installations report
+UPDATE_BASE_NOT_PUBLISHED rather than applying an unsafe partial update.
+The historical0.3.2 release assets are retained on GitHub.
+
+The0.3.3 baseline uploads signed metadata only. Normal later app/content changes
+use changed-file chunks through CHECK FOR UPDATES.bat or the startup check.
+PLAY ON AWS.bat requires separately issued enrollment; the public channel does
+not distribute credentials, certificates/private keys or player accounts.
+
+Final0.3.3 ZIP SHA256:
+740fedb0752b9da505ef90c0e8b08adaebbdaf49a535213ed92d03c1d7966bfd
+Size:44,888,854,905 bytes. Package validation is not native multiplayer proof.
