@@ -2,6 +2,12 @@
 
 Public signed update channel for the full-folder compatibility build.
 
+## Latest update: 0.3.4
+
+Run CHECK FOR UPDATES.bat from an installed 0.3.3 build to install 0.3.4.
+This update contains 10 changed code files (100,410 payload bytes, plus signed
+metadata); no new full game download is required. [Changes and limitations](docs/release-0.3.4.md).
+
 ## Current baseline:0.3.3
 
 Install the separately distributed, validated0.3.3 ZIP once. Existing0.3.2
